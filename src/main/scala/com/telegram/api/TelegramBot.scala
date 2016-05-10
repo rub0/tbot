@@ -15,7 +15,7 @@ abstract class TelegramBot(val token: String) extends TelegramAPI(token) with Te
 
   val cmdPrefix = "/"
 
-  // Allows targeting specific bots eg. /hello@FlunkeyBot
+  // Allows   targeting specific bots eg. /hello@FlunkeyBot
   val cmdAt = "@"
 
   /**
