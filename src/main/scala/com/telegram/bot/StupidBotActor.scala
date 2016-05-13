@@ -8,6 +8,8 @@ import akka.actor.Actor.Receive
   */
 class StupidBotActor extends Actor{
   override def receive: Receive = {
+    case BotMessage(chatId, args: Seq[String]) =>
+      StupidBot.sendMessage(chatId, "i have just received a new message :)")
     case _ => None
   }
 }

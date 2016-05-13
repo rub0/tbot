@@ -12,11 +12,11 @@ case class BotMessage(chatId: Int, message: Seq[String])
 /**
   * Created by rmulero on 10/05/16.
   */
-object StupidBot extends TelegramBot("ficheroAleer") with Runnable{
+object StupidBot extends TelegramBot(ActorSystem("bot").settings.config.getString("bot.token")) with Runnable{
 
   implicit def toOption[T](x:T) : Option[T] = Option(x)
 
-  implicit val system = ActorSystem("rest")
+  implicit val system = ActorSystem("bot")
   implicit val materializer = ActorMaterializer()
 
   val cmdActor: ActorRef = system.actorOf(Props(new StupidBotActor))
